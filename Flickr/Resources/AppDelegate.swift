@@ -17,6 +17,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     let flickrAPISecret = "2aea7885596b727d"
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        
+        
         return true
     }
 
