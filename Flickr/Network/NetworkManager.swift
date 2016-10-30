@@ -35,10 +35,28 @@ extension NetworkManager: NetworkProtocol {
         })
     }
     
-    func getPhotosOfUserWith(id: String, callback: @escaping (Result<Photos>) -> Void) {
-        alamofireCall(.getPhotosOfUserWith(id: id),
+    func getPhotosOfUserWith(userId: String, photosPerPage: Int, pageNumber: Int, callback: @escaping (Result<Photos>) -> Void) {
+        alamofireCall(.getPhotosOfUserWith(userId: userId, photosPerPage: photosPerPage, pageNumber: pageNumber),
                       success: { response in
-                        callback(.success(Photos(data: response)))
+                        callback(.success(Photos(data: response["photos"])))
+        }, failure: { error in
+            callback(.failure(error: error))
+        })
+    }
+    
+    func getPhotoInformationWith(photoId: String, callback: @escaping (Result<PhotoDetail>) -> Void) {
+        alamofireCall(.getPhotoInformationWith(photoId: photoId),
+                      success: { response in
+                        callback(.success(PhotoDetail(data: response["photo"])))
+        }, failure: { error in
+            callback(.failure(error: error))
+        })
+    }
+    
+    func getPhotoSizesWith(photoId: String, callback: @escaping (Result<[PhotoSizes]>) -> Void) {
+        alamofireCall(.getPhotoSizesWith(photoId: photoId),
+                      success: { response in
+                        callback(.success(response["sizes"]["size"].arrayValue.flatMap({ PhotoSizes(data: $0) })))
         }, failure: { error in
             callback(.failure(error: error))
         })

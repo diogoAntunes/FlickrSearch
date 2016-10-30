@@ -18,10 +18,22 @@ class NetworkManagerMock: NetworkProtocol {
         callback(.success(User(data: json)))
     }
     
-    func getPhotosOfUserWith(id: String, callback: @escaping (Result<Photos>) -> Void) {
+    func getPhotosOfUserWith(userId: String, photosPerPage: Int, pageNumber: Int, callback: @escaping (Result<Photos>) -> Void) {
         
         let json = JSON(data: readjson(fileName: "Photos"))
-        callback(.success(Photos(data: json)))
+        callback(.success(Photos(data: json["photos"])))
+    }
+    
+    func getPhotoInformationWith(photoId: String, callback: @escaping (Result<PhotoDetail>) -> Void) {
+        
+        let json = JSON(data: readjson(fileName: "PhotoInfo"))
+        callback(.success(PhotoDetail(data: json["photo"])))
+    }
+    
+    func getPhotoSizesWith(photoId: String, callback: @escaping (Result<[PhotoSizes]>) -> Void) {
+        
+        let json = JSON(data: readjson(fileName: "PhotoSizes"))
+        callback(.success(json["sizes"]["size"].arrayValue.flatMap({ PhotoSizes(data: $0) })))
     }
 }
 

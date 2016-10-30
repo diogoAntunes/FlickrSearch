@@ -20,5 +20,7 @@ enum Result<T> {
 protocol NetworkProtocol {
     
     func getUserBy(username: String, callback: @escaping (Result<User>) -> Void)
-    func getPhotosOfUserWith(id: String, callback: @escaping (Result<Photos>) -> Void)
+    func getPhotosOfUserWith(userId: String, photosPerPage: Int, pageNumber: Int, callback: @escaping (Result<Photos>) -> Void)
+    func getPhotoInformationWith(photoId: String, callback: @escaping (Result<PhotoDetail>) -> Void)
+    func getPhotoSizesWith(photoId: String, callback: @escaping (Result<[PhotoSizes]>) -> Void)
 }

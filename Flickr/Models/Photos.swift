@@ -18,6 +18,8 @@ struct Photos {
         
         let id: String
         let title: String
+//        let smallPhotoURL: URL?
+//        let bigPhotoURL: URL?
         
         init(data: JSON) {
             id = data[API.id.rawValue].stringValue
@@ -34,10 +36,10 @@ struct Photos {
     let photo: [Photo]
     
     init(data: JSON) {
-        page = data[API.photos.rawValue][API.page.rawValue].intValue
-        pages = data[API.photos.rawValue][API.pages.rawValue].intValue
-        perpage = data[API.photos.rawValue][API.perpage.rawValue].intValue
-        total = data[API.photos.rawValue][API.total.rawValue].intValue
-        photo = data[API.photos.rawValue][API.photo.rawValue].arrayValue.map({ Photo(data: $0) })
+        page = data[API.page.rawValue].intValue
+        pages = data[API.pages.rawValue].intValue
+        perpage = data[API.perpage.rawValue].intValue
+        total = data[API.total.rawValue].intValue
+        photo = data[API.photo.rawValue].arrayValue.map({ Photo(data: $0) })
     }
 }

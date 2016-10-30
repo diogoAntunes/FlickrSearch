@@ -17,9 +17,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let client = NetworkClient(network: NetworkManager.sharedInstance)
         
-        client.network.getPhotosOfUserWith(id: "94949650@N02") { result in
+        client.network.getPhotoSizesWith(photoId: "12214167964") { result in
             switch result {
-            case .success(let photo): print(photo.photo.description)
+            case .success(let photoSizes):
+                photoSizes.forEach() {
+                    print("PhotoSize: \($0.size)")
+                    print("PhotoURL: \($0.sourceURL)")
+                }
             default: break
             }
         }
