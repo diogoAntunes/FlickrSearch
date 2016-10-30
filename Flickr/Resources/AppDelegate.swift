@@ -15,19 +15,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
-        let client = NetworkClient(network: NetworkManager.sharedInstance)
-        
-        client.network.getPhotoSizesWith(photoId: "12214167964") { result in
-            switch result {
-            case .success(let photoSizes):
-                photoSizes.forEach() {
-                    print("PhotoSize: \($0.size)")
-                    print("PhotoURL: \($0.sourceURL)")
-                }
-            default: break
-            }
-        }
-        
         return true
     }
 
