@@ -24,16 +24,32 @@ class FlickrAPITests: XCTestCase {
         super.tearDown()
     }
     
-    func testUserAPI() {
+    func testGetUser() {
         let expectedUserId = "146081126@N03"
         let expectedUserName = "diogo.antunes"
         
-        networkClient.network.getUserBy(id: "testId") { result in
+        networkClient.network.getUserBy(username: "testUsername") { result in
             switch result {
-            case .Success(let user):
+            case .success(let user):
                 XCTAssert(user.id == expectedUserId)
                 XCTAssert(user.username == expectedUserName)
-            case .Failure: XCTFail()
+            case .failure: XCTFail()
+            }
+        }
+    }
+    
+    func testGetPhotosOfUser() {
+        let expectedNumberOfPhotos = 38
+        let expectedFirstPhotoId = "12214167964"
+        
+        
+        networkClient.network.getPhotosOfUserWith(id: "testId") { result in
+            switch result {
+            case .success(let photos):
+                XCTAssert(photos.total == expectedNumberOfPhotos)
+                XCTAssert(photos.photo[0].id == expectedFirstPhotoId)
+                
+            case .failure: XCTFail()
             }
         }
     }

@@ -13,11 +13,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-    let flickrAPIKey = "4d4cebd14eb140fef1c2a30b67fe6da7"
-    let flickrAPISecret = "2aea7885596b727d"
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
+        let client = NetworkClient(network: NetworkManager.sharedInstance)
+        
+        client.network.getPhotosOfUserWith(id: "94949650@N02") { result in
+            switch result {
+            case .success(let photo): print(photo.photo.description)
+            default: break
+            }
+        }
         
         return true
     }

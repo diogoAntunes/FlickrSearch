@@ -12,13 +12,17 @@ import SwiftyJSON
 
 class NetworkManagerMock: NetworkProtocol {
     
-    func getUserBy(id: String, callback: @escaping (Result<User>) -> Void) {
+    func getUserBy(username: String, callback: @escaping (Result<User>) -> Void) {
         
         let json = JSON(data: readjson(fileName: "User"))
-        callback(.Success(User(data: json)))
-//        callback(.Success(User(id: "146081126@N03", username: "diogo.antunes")))
+        callback(.success(User(data: json)))
     }
     
+    func getPhotosOfUserWith(id: String, callback: @escaping (Result<Photos>) -> Void) {
+        
+        let json = JSON(data: readjson(fileName: "Photos"))
+        callback(.success(Photos(data: json)))
+    }
 }
 
 extension NetworkManagerMock {

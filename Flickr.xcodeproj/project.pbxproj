@@ -13,6 +13,9 @@
 		D98020661DC200C100BCCC4D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D98020631DC200C100BCCC4D /* Assets.xcassets */; };
 		D980206A1DC200C800BCCC4D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D98020681DC200C800BCCC4D /* LaunchScreen.storyboard */; };
 		D980206B1DC200C800BCCC4D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D98020691DC200C800BCCC4D /* Main.storyboard */; };
+		D9AD80B31DC5725400EBB13D /* Photos.json in Resources */ = {isa = PBXBuildFile; fileRef = D9AD80B21DC5725400EBB13D /* Photos.json */; };
+		D9AD80B51DC5741400EBB13D /* Photos.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9AD80B41DC5741400EBB13D /* Photos.swift */; };
+		D9AD80B61DC57B4800EBB13D /* Photos.json in Resources */ = {isa = PBXBuildFile; fileRef = D9AD80B21DC5725400EBB13D /* Photos.json */; };
 		D9D93AF61DC20EDC00B23FBB /* FlickrAPITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D93AF51DC20EDC00B23FBB /* FlickrAPITests.swift */; };
 		D9D93AFB1DC2125B00B23FBB /* User.json in Resources */ = {isa = PBXBuildFile; fileRef = D9D93AFA1DC2125B00B23FBB /* User.json */; };
 		D9D93AFD1DC2136400B23FBB /* NetworkManagerMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D93AFC1DC2136400B23FBB /* NetworkManagerMock.swift */; };
@@ -52,6 +55,8 @@
 		D98020641DC200C100BCCC4D /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D98020681DC200C800BCCC4D /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D98020691DC200C800BCCC4D /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		D9AD80B21DC5725400EBB13D /* Photos.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Photos.json; sourceTree = "<group>"; };
+		D9AD80B41DC5741400EBB13D /* Photos.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Photos.swift; sourceTree = "<group>"; };
 		D9D93AF51DC20EDC00B23FBB /* FlickrAPITests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlickrAPITests.swift; sourceTree = "<group>"; };
 		D9D93AFA1DC2125B00B23FBB /* User.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = User.json; sourceTree = "<group>"; };
 		D9D93AFC1DC2136400B23FBB /* NetworkManagerMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManagerMock.swift; sourceTree = "<group>"; };
@@ -181,6 +186,7 @@
 			isa = PBXGroup;
 			children = (
 				D9D93B041DC240DD00B23FBB /* User.swift */,
+				D9AD80B41DC5741400EBB13D /* Photos.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -189,6 +195,7 @@
 			isa = PBXGroup;
 			children = (
 				D9D93AFA1DC2125B00B23FBB /* User.json */,
+				D9AD80B21DC5725400EBB13D /* Photos.json */,
 			);
 			path = Mocks;
 			sourceTree = "<group>";
@@ -244,7 +251,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0800;
-				LastUpgradeCheck = 0800;
+				LastUpgradeCheck = 0810;
 				ORGANIZATIONNAME = "Diogo Antunes";
 				TargetAttributes = {
 					D980203C1DC2001100BCCC4D = {
@@ -285,6 +292,7 @@
 			files = (
 				D9D93B071DC25B9B00B23FBB /* User.json in Resources */,
 				D980206A1DC200C800BCCC4D /* LaunchScreen.storyboard in Resources */,
+				D9AD80B61DC57B4800EBB13D /* Photos.json in Resources */,
 				D98020661DC200C100BCCC4D /* Assets.xcassets in Resources */,
 				D980206B1DC200C800BCCC4D /* Main.storyboard in Resources */,
 			);
@@ -294,6 +302,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D9AD80B31DC5725400EBB13D /* Photos.json in Resources */,
 				D9D93AFB1DC2125B00B23FBB /* User.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -398,6 +407,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D9AD80B51DC5741400EBB13D /* Photos.swift in Sources */,
 				D98020651DC200C100BCCC4D /* AppDelegate.swift in Sources */,
 				D98020431DC2001100BCCC4D /* ViewController.swift in Sources */,
 				D9D93B051DC240DD00B23FBB /* User.swift in Sources */,

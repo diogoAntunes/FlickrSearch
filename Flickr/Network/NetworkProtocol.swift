@@ -8,12 +8,17 @@
 
 import Foundation
 
+enum BackendError: Error {
+    case fail
+}
+
 enum Result<T> {
-    case Success(T)
-    case Failure(error: Error)
+    case success(T)
+    case failure(error: Error)
 }
 
 protocol NetworkProtocol {
     
-    func getUserBy(id: String, callback: @escaping (Result<User>) -> Void)
+    func getUserBy(username: String, callback: @escaping (Result<User>) -> Void)
+    func getPhotosOfUserWith(id: String, callback: @escaping (Result<Photos>) -> Void)
 }
