@@ -13,10 +13,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-    let flickrAPIKey = "4d4cebd14eb140fef1c2a30b67fe6da7"
-    let flickrAPISecret = "2aea7885596b727d"
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        
+        let client = NetworkClient(network: NetworkManager.sharedInstance)
+        
+        client.network.getPhotoSizesWith(photoId: "12214167964") { result in
+            switch result {
+            case .success(let photoSizes):
+                photoSizes.forEach() {
+                    print("PhotoSize: \($0.size)")
+                    print("PhotoURL: \($0.sourceURL)")
+                }
+            default: break
+            }
+        }
+        
         return true
     }
 
